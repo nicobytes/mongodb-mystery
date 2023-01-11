@@ -1,0 +1,221 @@
+use("mongodb_mystery")
+
+db.crime_scene_report.drop()
+db.crime_scene_report.insertMany([
+  {
+    date: 20180115,
+    type: 'robbery',
+    description: 'A Man Dressed as Spider-Man Is on a Robbery Spree',
+    city: 'NYC'
+  },
+  {
+    date: 20180115,
+    type: 'murder',
+    description: 'Security footage shows that there were 2 witnesses. The first witness lives at the last house on "Northwestern Dr". The second witness, named Annabel, lives somewhere on "Franklin Ave".',
+    city: 'Mongo City'
+  },
+  {
+    date: 20180115,
+    type: 'murder',
+    description: 'Life? Dont talk to me about life.',
+    city: 'Albany'
+  },
+  {
+    date: 20180215,
+    type: 'murder',
+    description: 'Someone killed the guard! He took an arrow to the knee!',
+    city: 'Mongo City'
+  },
+  {
+    date: 20170129,
+    type: 'assault',
+    description: 'OUT OF ITS WAISTCOAT-POCKET, and looked at it, and then hurried on,',
+    city: 'Irving'
+  },
+])
+db.people.drop()
+db.people.insertMany([
+  {
+    id: 10000,
+    name: 'Christoper Peteuil',
+    license_id: 993845,
+    address_number: 624,
+    address_street_name: 'Bankhall Ave',
+    ssn: 747714076
+  },
+  {
+    id: 10007,
+    name: 'Kourtney Calderwood',
+    license_id: 861794,
+    address_number: 2791,
+    address_street_name: 'Gustavus Blvd',
+    ssn: 477972044
+  },
+  {
+    id: 10010,
+    name: 'Muoi Cary',
+    license_id: 385336,
+    address_number: 741,
+    address_street_name: 'Northwestern Dr',
+    ssn: 828638512
+  },
+  {
+    id: 14887,
+    name: 'Morty Schapiro',
+    license_id: 118009,
+    address_number: 4919,
+    address_street_name: 'Northwestern Dr',
+    ssn: 111564949
+  },
+  {
+    id: 16371,
+    name: 'Annabel Miller',
+    license_id: 490173,
+    address_number: 103,
+    address_street_name: 'Franklin Ave',
+    ssn: 318771143
+  },
+  {
+    id: 12711,
+    name: 'Norman Apolito',
+    license_id: 667757,
+    address_number: 599,
+    address_street_name: 'Northwestern Dr',
+    ssn: 778264744
+  },
+  {
+    id: 12711,
+    name: 'Wilmer Wolever',
+    license_id: 509484,
+    address_number: 139,
+    address_street_name: 'Franklin Ave',
+    ssn: 636825374
+  },
+  {
+    id: 67318,
+    name: 'Jeremy Bowers',
+    license_id: 423327,
+    address_number: 530,
+    address_street_name: 'Washington Pl, Apt 3A',
+    ssn: 871539279
+  },
+])
+
+
+db.interviews.drop()
+db.interviews.insertMany([
+  {
+    person_id: 28508,
+    transcript: 'I deny it! said the March Hare.'
+  },
+  {
+    person_id: 86208,
+    transcript: 'way, and the whole party swam to the shore.'
+  },
+  {
+    person_id: 35267,
+    transcript: 'lessons in here? Why, there is hardly room for YOU, and no room at all'
+  },
+  {
+    person_id: 66493,
+    transcript: 'would be offended again.'
+  },
+  {
+    person_id: 16371,
+    transcript: 'I saw the murder happen, and I recognized the killer from my gym when I was working out last week on January the 9th.'
+  },
+  {
+    person_id: 14887,
+    transcript: 'I heard a gunshot and then saw a man run out. He had a "Get Fit Now Gym" bag. The membership number on the bag started with "48Z". Only gold members have those bags. The man got into a car with a plate that included "H42W".'
+  },
+  {
+    person_id: 67318,
+    transcript: "I was hired by a woman with a lot of money. I don't know her name but I know she's around 5'5 (65) or 5'7 (67). She has red hair and she drives a Tesla Model S. I know that she attended the SQL Symphony Concert 3 times in December 2017."
+  }
+])
+
+db.get_fit_now_member.drop()
+db.get_fit_now_member.insertMany([
+  {
+    id: 'NL318',
+    person_id: 65076,
+    name: 'Everette Koepke',
+    membership_start_date: 20170926,
+    membership_status: 'gold'
+  },
+  {
+    id: 'AOE21',
+    person_id: 39426,
+    name: 'Noe Locascio',
+    membership_start_date: 20171005,
+    membership_status: 'regular'
+  },
+  {
+    id: '2PN28',
+    person_id: 63823,
+    name: 'Jeromy Heitschmidt',
+    membership_start_date: 20180215,
+    membership_status: 'silver'
+  },
+  {
+    id: 'XTE42',
+    person_id: 55662,
+    name: 'Sarita Bartosh',
+    membership_start_date: 20170524,
+    membership_status: 'gold'
+  },
+  {
+    id: '48Z55',
+    person_id: 67318,
+    name: 'Jeremy Bowers',
+    membership_start_date: 20160101,
+    membership_status: 'gold'
+  },
+  {
+    id: '48Z12',
+    person_id: 67317,
+    name: 'Jhon Wick',
+    membership_start_date: 20160101,
+    membership_status: 'gold'
+  },
+])
+
+db.get_fit_now_check_in.drop()
+db.get_fit_now_check_in.insertMany([
+  {
+    membership_id: 'NL318',
+    check_in_date: 20180212,
+    check_in_time: 329,
+    check_out_time: 365,
+  },
+  {
+    membership_id: 'NL318',
+    check_in_date: 20170811,
+    check_in_time: 469,
+    check_out_time: 920,
+  },
+  {
+    membership_id: '48Z55',
+    check_in_date: 20180109,
+    check_in_time: 1530,
+    check_out_time: 1700,
+  },
+  {
+    membership_id: '2PN28',
+    check_in_date: 20171121,
+    check_in_time: 329,
+    check_out_time: 365,
+  },
+  {
+    membership_id: '2PN28',
+    check_in_date: 20170309,
+    check_in_time: 469,
+    check_out_time: 920,
+  },
+  {
+    membership_id: '48Z12',
+    check_in_date: 20180104,
+    check_in_time: 1530,
+    check_out_time: 1700,
+  },
+])
